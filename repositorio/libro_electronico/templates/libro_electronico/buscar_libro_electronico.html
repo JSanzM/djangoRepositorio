@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Libros Electonicos{% endblock %}
+
+{% block content %}
+    <h1>Buscar Libro</h1>
+
+    <div class="search-box">
+            <form method="get">
+                <label>Autor:</label>
+                <input type="text" name="autor"
+                       value="{{ autor_buscar }}"
+                       placeholder="Ej: Guido van Rossum">
+
+                <label>Título:</label>
+                <input type="text" name="titulo"
+                       value="{{ titulo_buscar }}"
+                       placeholder="Ej: Python Programming">
+
+                <button type="submit" class="btn btn-warning btn-sm me-3">Buscar</button>
+                <a href="{% url 'libro_electronico:libro_electronico' %}" style="margin-left: 10px;" class="btn btn-dark btn-sm me-3">Cancelar</a>
+            </form>
+        </div>
+
+        {% if resultado is not None %}
+            <h2>Resultados ({{ resultado|length }})</h2>
+            {% if resultado %}
+
+                <div class="container; left">
+                    <table class="table table-striped table-hover align-middle table-bordered" style="white-space: nowrap; overflow-x: auto; float: left">
+                        <thead class="table-dark text-center">
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Título</th>
+                            <th scope="col">Autor</th>
+                            <th scope="col">Serie</th>
+                            <th scope="col">Bajado</th>
+                            <th scope="col">Notas</th>
+                            <th scope="col"></th>
+                        </tr>
+                        </thead>
+                        {% for libro in resultado %}
+                            <tr>
+                                <th scope="row">{{libro.id}}</th>
+                                <td class="align-middle">{{libro.titulo}}</td>
+                                <td class="align-middle">{{libro.autor}}</td>
+                                <td class="align-middle">{{libro.serie}}</td>
+                                <td class="align-middle">{{libro.bajado}}</td>
+                                <td class="align-middle">{{libro.notas}}</td>
+                                <td> <div class="container">
+                                    <a href="{% url 'libro_electronico:libro_electronico_editar_libro' libro.id %}"
+                                       class="btn btn-warning btn-sm me-3">Editar</a>
+                                    <a href="{% url 'libro_electronico:libro_electronico_borrar_libro' libro.id %}"
+                                       class="btn btn-danger btn-sm ">Borrar</a>
+                                </div> </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            {% else %}
+                <p>No se encontraron resultados con esos criterios.</p>
+            {% endif %}
+        {% endif %}
+
+        <p><a href="{% url 'libro_electronico:libro_electronico' %}">Volver a la lista</a></p>
+
+
+{% endblock %}

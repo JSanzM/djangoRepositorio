@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Libros Electrónicos{% endblock %}
+
+{% block content %}
+    <h1>Confirmación de borrado</h1>
+
+    <h3>¿Estás seguro?</h3>
+    <p>Vas a borrar: <strong>{{ libro.titulo }}</strong></p>
+    <p>Autor: {{ libro.autor }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger btn-sm me-3">Sí, borrar</button>
+        <a href="{% url 'libro_electronico:libro_electronico' %}" class="btn btn-warning btn-sm me-3">Cancelar</a>
+    </form>
+
+{% endblock %}
