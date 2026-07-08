@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Libros de Informática{% endblock %}
+
+{% block content %}
+    <h1>Importar Libros desde CSV</h1>
+
+        <div>
+            <p>Sube un archivo CSV con el siguiente formato:</p>
+            <code>ID, Título, Autor, Editorial, Año, Tipo, Subtipo, Leído</code>
+            <p style="color: #666; margin: 15px 0;">La primera fila (encabezado) se ignorará.</p>
+
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="file" name="archivo" accept=".csv" required>
+                <br>
+                </p>
+                <button type="submit" class="btn btn-warning btn-sm me-3">Importar</button>
+            </form>
+        </div>
+        </p>
+        <p><a href="{% url 'libro_informatica:libro_informatica' %}">Volver a la lista</a></p>
+
+{% endblock %}

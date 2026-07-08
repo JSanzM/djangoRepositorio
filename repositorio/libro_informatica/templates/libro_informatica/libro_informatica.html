@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Libros de Informática{% endblock %}
+
+{% block content %}
+    <h3>Número de libros: {{ libros|length }}</h3>
+
+    {% if libros %}
+        <div class="container; left">
+            <table class="table table-striped table-hover align-middle table-bordered" style="white-space: nowrap; overflow-x: auto; float: left">
+                <thead class="table-dark text-center">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Autor</th>
+                    <th scope="col">Editorial</th>
+                    <th scope="col">Año</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Subtipo</th>
+                    <th scope="col">Leido</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                {% for libro in libros %}
+                    <tr>
+                        <th scope="row">{{libro.id}}</th>
+                        <td class="align-middle">{{libro.titulo}}</td>
+                        <td class="align-middle">{{libro.autor}}</td>
+                        <td class="align-middle">{{libro.editorial}}</td>
+                        <td class="align-middle">{{libro.anyo}}</td>
+                        <td class="align-middle">{{libro.tipo}}</td>
+                        <td class="align-middle">{{libro.subtipo}}</td>
+                        <td class="align-middle">{{libro.leido}}</td>
+                        <td> <div class="container">
+		                    <a href="{% url 'libro_informatica:libro_informatica_editar_libro' libro.id %}"
+		                       class="btn btn-warning btn-sm me-3">Editar</a>
+		                    <a href="{% url 'libro_informatica:libro_informatica_borrar_libro' libro.id %}"
+		                       class="btn btn-danger btn-sm ">Borrar</a>
+		                </div> </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% else %}
+        <p>No hay libros disponibles.</p>
+    {% endif %}
+{% endblock %}
