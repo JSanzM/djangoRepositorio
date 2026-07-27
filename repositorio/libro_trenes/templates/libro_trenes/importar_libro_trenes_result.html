@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Libros de Trenes{% endblock %}
+
+{% block content %}
+    <h1>Importación Finalizada</h1>
+
+    <p><h2><strong>Libros importados exitosamente:</strong> {{ contador }}</h2></p>
+
+    {% if errors %}
+        <div style="background-color: #ffebee; padding: 15px; margin: 20px 0; border-radius: 5px;">
+            <p><strong>Error(es) detectado(s):</strong></p>
+            <ul>
+                {% for error in errors %}
+                    <li style="color: #c62828;">{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    <p><a href="{% url 'libro_trenes:libro_trenes' %}">Volver a la lista</a></p>
+
+{% endblock %}
