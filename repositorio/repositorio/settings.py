@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "libro_informatica.apps.LibroInformaticaConfig",
     "libro_electronico.apps.LibroElectronicoConfig",
+    "libro_trenes.apps.LibroTrenesConfig",
 ]
 
 MIDDLEWARE = [

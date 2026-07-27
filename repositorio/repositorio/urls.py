@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include('libro_informatica.urls', namespace='inicial')),
     path('libro_informatica/', include('libro_informatica.urls', namespace='libro_informatica')),
     path('libro_electronico/', include('libro_electronico.urls', namespace='libro_electronico')),
+    path('libro_trenes/', include('libro_trenes.urls', namespace='libro_trenes')),
 ]
