@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}CD's,  DVD's y BluRay{% endblock %}
+
+{% block content %}
+    <h1>{% if cd %}Editar CD/DVD/BluRay{% else %}Nuevo CD/DVD/BluRay{% endif %}</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ formulario.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+
+    <p><a href="{% url 'cds:cds' %}">Volver a la lista</a></p>
+
+{% endblock %}

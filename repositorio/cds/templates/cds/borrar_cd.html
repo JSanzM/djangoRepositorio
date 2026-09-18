@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}CD's,  DVD's y BluRay{% endblock %}
+
+{% block content %}
+    <h1>Confirmación de borrado</h1>
+
+    <h3>¿Estás seguro?</h3>
+    <p>Vas a borrar: <strong>{{ cd.titulo }}</strong></p>
+    <p>Autor: {{ cd.grupo }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger btn-sm me-3">Sí, borrar</button>
+        <a href="{% url 'cds:cds' %}" class="btn btn-warning btn-sm me-3">Cancelar</a>
+    </form>
+
+{% endblock %}

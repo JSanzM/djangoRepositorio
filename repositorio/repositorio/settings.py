@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "libro_informatica.apps.LibroInformaticaConfig",
     "libro_electronico.apps.LibroElectronicoConfig",
     "libro_trenes.apps.LibroTrenesConfig",
+    "cds.apps.CdsConfig",
 ]
 
 MIDDLEWARE = [

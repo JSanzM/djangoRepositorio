@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}CD's,  DVD's y BluRay{% endblock %}
+
+{% block content %}
+    <h1>Buscar CD, DVD o BluRay</h1>
+
+    <div class="search-box">
+            <form method="get">
+                <label>Título:</label>
+                <input type="text" name="titulo"
+                       value="{{ titulo_buscar }}"
+                       placeholder="Ej: Black Celebration">
+
+                <label>Grupo:</label>
+                <input type="text" name="grupo"
+                       value="{{ grupo_buscar }}"
+                       placeholder="Ej: Depeche Mode">
+
+                <button type="submit" class="btn btn-warning btn-sm me-3">Buscar</button>
+                <a href="{% url 'cds:cds' %}" style="margin-left: 10px;" class="btn btn-dark btn-sm me-3">Cancelar</a>
+            </form>
+        </div>
+
+        {% if resultado is not None %}
+            <h2>Resultados ({{ resultado|length }})</h2>
+            {% if resultado %}
+
+                <div class="container; left">
+                    <table class="table table-striped table-hover align-middle table-bordered" style="white-space: nowrap; overflow-x: auto; float: left">
+                        <thead class="table-dark text-center">
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Título</th>
+                            <th scope="col">Grupo</th>
+                            <th scope="col">Año</th>
+                            <th scope="col">Copiado</th>
+                            <th scope="col">Falta</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Notas</th>
+                            <th scope="col"></th>
+                        </tr>
+                        </thead>
+                        {% for cd in resultado %}
+                            <tr>
+                                <th scope="row">{{cd.id}}</th>
+                                <td class="align-middle">{{cd.titulo}}</td>
+                                <td class="align-middle">{{cd.grupo}}</td>
+                                <td class="align-middle">{{cd.anyo}}</td>
+                                <td class="align-middle">{{cd.copiado}}</td>
+                                <td class="align-middle">{{cd.falta}}</td>
+                                <td class="align-middle">{{cd.tipo}}</td>
+                                <td class="align-middle">{{cd.notas}}</td>
+                                <td> <div class="container">
+                                    <a href="{% url 'cds:cds_editar_cd' cd.id %}"
+                                       class="btn btn-warning btn-sm me-3">Editar</a>
+                                    <a href="{% url 'cds:cds_borrar_cd' cd.id %}"
+                                       class="btn btn-danger btn-sm ">Borrar</a>
+                                </div> </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            {% else %}
+                <p>No se encontraron resultados con esos criterios.</p>
+            {% endif %}
+        {% endif %}
+
+        <p><a href="{% url 'cds:cds' %}">Volver a la lista</a></p>
+
+
+{% endblock %}

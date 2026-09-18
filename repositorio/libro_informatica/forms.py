@@ -12,5 +12,7 @@ class LibroForm(forms.ModelForm):
             'autor': forms.TextInput(attrs={'class': 'form-control'}),
             'editorial': forms.TextInput(attrs={'class': 'form-control'}),
             'anyo': forms.NumberInput(attrs={'class': 'form-control'}),
+            'tipo': forms.Select(attrs={'class': 'form-control'}),
+            'subtipo': forms.Select(attrs={'class': 'form-control'}),
             'leido': forms.Select(attrs={'class': 'form-control'}),
         }

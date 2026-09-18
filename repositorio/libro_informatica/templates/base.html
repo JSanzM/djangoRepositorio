@@ -62,6 +62,21 @@
                                 <li><a class="dropdown-item" href="{% url 'libro_trenes:libro_trenes_exportar_xlsx' %}">Exportar a Excel</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                CD's, DVD's y BluRay's
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="/cds">Listado</a></li>
+                                <div class="dropdown-divider"></div>
+                                <li><a class="dropdown-item" href="{% url 'cds:alta_cd' %}">Añadir CD, DVD o BluRay</a></li>
+                                <li><a class="dropdown-item" href="{% url 'cds:buscar_cd' %}">Buscar CD, DVD o BluRay</a></li>
+                                <div class="dropdown-divider"></div>
+                                <li><a class="dropdown-item" href="{% url 'cds:importar_cds' %}">Importar desde CSV</a></li>
+                                <li><a class="dropdown-item" href="{% url 'cds:exportar_cds' %}">Exportar a CSV</a></li>
+                                <li><a class="dropdown-item" href="{% url 'cds:exportar_cds_xlsx' %}">Exportar a Excel</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
