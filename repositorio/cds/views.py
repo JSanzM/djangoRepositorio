@@ -146,7 +146,7 @@ def cds_exportar_cds_xlsx(request):
         import pandas as pd
 
         # Convertir QuerySet a lista de diccionarios
-        libros_data = list(Cds.objects.all().order_by('titulo').values(
+        cds_data = list(Cds.objects.all().order_by('titulo').values(
             'id',
             'titulo',
             'grupo__grupo', # Relación ForeignKey
@@ -163,7 +163,7 @@ def cds_exportar_cds_xlsx(request):
             'tipo__tipo': 'Tipo'
         }
 
-        df = pd.DataFrame(libros_data)
+        df = pd.DataFrame(cds_data)
         df.rename(columns=rename_map, inplace=True)
 
         # Asegurar orden de columnas
@@ -224,7 +224,7 @@ def cds_editar_cd(request, id):
 
     contexto = {
         'formulario': formulario,
-        'libro': cd,
+        'cd': cd,
     }
     return render(request, 'cds/editar_cd.html', contexto)
 

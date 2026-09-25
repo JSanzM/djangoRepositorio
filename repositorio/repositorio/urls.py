@@ -25,4 +25,5 @@ urlpatterns = [
     path('libro_electronico/', include('libro_electronico.urls', namespace='libro_electronico')),
     path('libro_trenes/', include('libro_trenes.urls', namespace='libro_trenes')),
     path('cds/', include('cds.urls', namespace='cds')),
+    path('aplicaciones/', include('aplicaciones.urls', namespace='aplicaciones')),
 ]
