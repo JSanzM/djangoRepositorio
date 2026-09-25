@@ -77,6 +77,21 @@
                                 <li><a class="dropdown-item" href="{% url 'cds:exportar_cds_xlsx' %}">Exportar a Excel</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Aplicaciones
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="/aplicaciones">Listado</a></li>
+                                <div class="dropdown-divider"></div>
+                                <li><a class="dropdown-item" href="{% url 'aplicaciones:alta_aplicacion' %}">Añadir Aplicación</a></li>
+                                <li><a class="dropdown-item" href="{% url 'aplicaciones:buscar_aplicacion' %}">Buscar Aplicaciones</a></li>
+                                <div class="dropdown-divider"></div>
+                                <li><a class="dropdown-item" href="{% url 'aplicaciones:importar_aplicaciones' %}">Importar desde CSV</a></li>
+                                <li><a class="dropdown-item" href="{% url 'aplicaciones:exportar_aplicaciones' %}">Exportar a CSV</a></li>
+                                <li><a class="dropdown-item" href="{% url 'aplicaciones:exportar_aplicaciones_xlsx' %}">Exportar a Excel</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
