@@ -14,4 +14,4 @@ class LibroElectronico(models.Model):
     def __str__(self):
         return f"{self.titulo} - {self.autor} - {self.serie}"
     class Meta:
-        ordering = ('titulo',)
+        ordering = ('autor','serie','titulo',)
