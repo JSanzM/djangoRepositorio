@@ -6,6 +6,8 @@ class TipoJuego(models.Model):
     tipoJuego = models.CharField(max_length=200)
     def __str__(self):
         return f"{self.tipoJuego}"
+    class Meta:
+        ordering = ['tipoJuego']
 
 # Create your models here.
 class Juegos(models.Model):

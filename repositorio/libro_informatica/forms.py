@@ -7,6 +7,10 @@ class LibroForm(forms.ModelForm):
     class Meta:
         model = LibroInformatica
         fields = ['titulo', 'autor', 'editorial', 'anyo', 'tipo', 'subtipo', 'leido']
+        labels = {
+            'anyo': 'Año',
+            'titulo': 'Título',
+        }
         widgets = {
             'titulo': forms.TextInput(attrs={'class': 'form-control'}),
             'autor': forms.TextInput(attrs={'class': 'form-control'}),

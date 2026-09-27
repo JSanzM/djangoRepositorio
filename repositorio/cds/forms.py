@@ -7,6 +7,10 @@ class CdsForm(forms.ModelForm):
     class Meta:
         model = Cds
         fields = ['titulo', 'grupo', 'anyo', 'copiado', 'falta', 'tipo', 'notas']
+        labels = {
+            'anyo': 'Año',
+            'titulo': 'Título',
+        }
         widgets = {
             'titulo': forms.TextInput(attrs={'class': 'form-control'}),
             'grupo': forms.Select(attrs={'class': 'form-control'}),

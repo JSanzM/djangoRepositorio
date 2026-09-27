@@ -5,6 +5,8 @@ class Grupo(models.Model):
     grupo = models.CharField(max_length=100)
     def __str__(self):
         return self.grupo
+    class Meta:
+        ordering = ('grupo',)
 
 class Tipo(models.Model):
     tipo = models.CharField(max_length=100)

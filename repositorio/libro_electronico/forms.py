@@ -7,6 +7,9 @@ class LibroElectronicoForm(forms.ModelForm):
     class Meta:
         model = LibroElectronico
         fields = ['titulo', 'autor', 'serie', 'bajado', 'notas']
+        labels = {
+            'titulo': 'Título',
+        }
         widgets = {
             'titulo': forms.TextInput(attrs={'class': 'form-control'}),
             'autor': forms.TextInput(attrs={'class': 'form-control'}),

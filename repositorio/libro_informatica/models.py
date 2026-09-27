@@ -8,12 +8,18 @@ class Tipo(models.Model):
     def __str__(self):
         return self.tipo
 
+    class Meta:
+        ordering = ('tipo',)
+
 class Subtipo(models.Model):
     subtipo = models.CharField(max_length=60)
     descripcion = models.CharField(max_length=60)
 
     def __str__(self):
         return self.subtipo
+
+    class Meta:
+        ordering = ('subtipo',)
 
 class LibroInformatica(models.Model):
 

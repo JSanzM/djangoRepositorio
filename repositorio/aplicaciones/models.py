@@ -7,6 +7,8 @@ class Origen(models.Model):
     origen = models.CharField(max_length=100)
     def __str__(self):
         return self.origen
+    class Meta:
+        ordering = ['origen']
 
 class Aplicaciones(models.Model):
 

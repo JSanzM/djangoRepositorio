@@ -7,6 +7,9 @@ class JuegosForm(forms.ModelForm):
     class Meta:
         model = Juegos
         fields = ['nombre', 'tipoJuego', 'instalar', 'origen', 'notas']
+        labels = {
+            'tipoJuego': 'Tipo',
+        }
         widgets =  {
             'nombre': forms.TextInput(attrs={'class': 'form-control'}),
             'tipoJuego': forms.Select(attrs={'class': 'form-control'}),
