@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "libro_trenes.apps.LibroTrenesConfig",
     "cds.apps.CdsConfig",
     "aplicaciones.apps.AplicacionesConfig",
+    "juegos.apps.JuegosConfig",
 ]
 
 MIDDLEWARE = [
